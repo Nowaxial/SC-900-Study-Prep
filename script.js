@@ -581,7 +581,7 @@ function toggleTheme() {
   const next = current === 'dark' ? 'light' : 'dark';
   html.setAttribute('data-theme', next);
   localStorage.setItem('sc900-theme', next);
-  document.getElementById('themeToggle').innerHTML = next === 'dark' ? '&#9790;' : '&#9728;';
+  document.getElementById('themeToggle').innerHTML = next === 'dark' ? '&#9728;' : '&#9790;';
 }
 
 // Sidebar toggle
@@ -834,7 +834,7 @@ document.addEventListener('click', (e) => {
   // Load theme
   const savedTheme = localStorage.getItem('sc900-theme') || 'dark';
   document.documentElement.setAttribute('data-theme', savedTheme);
-  document.getElementById('themeToggle').innerHTML = savedTheme === 'dark' ? '&#9790;' : '&#9728;';
+  document.getElementById('themeToggle').innerHTML = savedTheme === 'dark' ? '&#9728;' : '&#9790;';
 
   // Attach domain toggle click handlers with debounce (browser_click fires 2x)
   let domainToggleGuard = false;
