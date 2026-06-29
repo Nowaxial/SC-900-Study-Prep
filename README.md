@@ -52,8 +52,8 @@ Content is based on official Microsoft Learn modules, video study crams, and Mic
 - [SC-900: Describe capabilities of Microsoft Compliance](https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-compliance/)
 
 ### Video study crams
-- John Savill — SC-900 Study Cram (YouTube)
-- Georgia Kalyva — SC-900 Microsoft Learn Video Series
+- [John Savill — SC-900 Study Cram](https://www.youtube.com/watch?v=-FJqb60wPSY)
+- [Georgia Kalyva — SC-900 Full Course](https://www.youtube.com/playlist?list=PLahhVEj9XNTc3cKjd28NUDFPrV4QcfxH5)
 
 ### Microsoft documentation
 - [Microsoft Entra ID documentation](https://learn.microsoft.com/en-us/entra/identity/)
