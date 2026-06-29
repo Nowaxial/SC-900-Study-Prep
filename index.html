@@ -5597,7 +5597,7 @@
       <div class="tab-content active notes" data-tab="notes">
 <div class="module-header">
   <h3>Module: SC-900 Key Pointers Quick Reference</h3>
-  <p class="module-meta">22 Categories | Exam Review</p>
+  <p class="module-meta">25 Categories | Exam Review</p>
 </div>
 
 <div class="unit-block">
@@ -5701,25 +5701,54 @@
 </div>
 
 <div class="unit-block">
-  <h3>10. Authorization and Access</h3>
+  <h3>10. Conditional Access & Authentication Strengths</h3>
   <ul>
     <li>Conditional Access evaluates signals (user, location, device, risk) and applies controls (MFA, block, compliant device) after first-factor authentication.</li>
     <li>Grant control logic: when multiple controls are selected, choose <em>Require all selected controls</em> (AND) or <em>Require one of the selected controls</em> (OR).</li>
     <li>Authentication Strengths specify acceptable MFA method combinations: MFA (any factor), Passwordless MFA, or Phishing-Resistant MFA (FIDO2, CBA, Windows Hello).</li>
-    <li>RBAC assigns permissions through a role assignment: a role (set of permissions) plus an identity plus a scope.</li>
-    <li>PIM provides just-in-time elevation where users are eligible by default and activate privileged roles on demand for a defined time window with MFA and justification.</li>
-    <li>Access reviews are periodic checks that confirm whether users still need their group, application, or role access.</li>
   </ul>
 </div>
 
 <div class="unit-block">
-  <h3>11. Identity Governance</h3>
+  <h3>11. PIM & Access Reviews</h3>
   <ul>
-    <li>Joiner/Mover/Leaver lifecycle automation uses lifecycle workflows triggered by start and end dates.</li>
-    <li>Identity Protection evaluates user risk (aggregate identity risk) and sign-in risk (per-event risk) to detect compromised identities.</li>
-    <li>Entitlement Management provides access packages bundling groups, apps, and SharePoint sites with policies for self-service requests, approvals, and time-bound access.</li>
-    <li>Verified ID uses decentralized identity with verifiable credentials based on open standards (W3C VC, DID). Three parties: issuer, holder (user wallet), and verifier.</li>
-    <li>Permissions Management discovers and remediates permissions across Azure, AWS, and GCP.</li>
+    <li>PIM provides just-in-time elevation where users are eligible by default and activate privileged roles on demand for a defined time window with MFA and justification. Three role types: Entra roles, Azure resources, and groups.</li>
+    <li>Activation requires approval (one or two approvers), a justification, and MFA. Activations are time-bound and fully audited with a history trail.</li>
+    <li>Access reviews are periodic checks that confirm whether users still need their group, application, or role access. Results are automatically applied (remove access for denied users) or manually reviewed.</li>
+    <li>Multi-stage reviews allow up to three sequential reviewers (e.g., manager → resource owner → compliance officer).</li>
+  </ul>
+</div>
+
+<div class="unit-block">
+  <h3>12. RBAC & Entra Roles</h3>
+  <ul>
+    <li>RBAC assigns permissions through a role assignment: a role (set of permissions) plus an identity (user, group, service principal) plus a scope (management group, subscription, resource group, resource).</li>
+    <li>Built-in Entra roles: Global Administrator (full access), User Administrator, Security Administrator, Billing Administrator, Exchange Admin, Intune Admin, and many service-specific roles.</li>
+    <li>Custom roles: collections of chosen permissions assigned at org-wide or specific-object scope (a single app or admin unit). Requires P1/P2 licensing.</li>
+    <li>Administrative Units scope admin permissions to specific objects — useful for regional or departmental admins.</li>
+    <li>Key distinction: Entra RBAC controls identity resources (users, groups, apps); Azure RBAC controls infrastructure resources (VMs, storage, networking).</li>
+    <li>Least privilege principle: always assign the minimum role needed. Global Admin should be reserved for break-glass scenarios only.</li>
+  </ul>
+</div>
+
+<div class="unit-block">
+  <h3>13. Identity Protection</h3>
+  <ul>
+    <li>Identity Protection evaluates user risk (aggregate identity risk over time) and sign-in risk (per-event risk based on real-time signals) to detect compromised identities.</li>
+    <li>Risk types: leaked credentials, anonymous IP, atypical travel, malicious IP, unfamiliar sign-in properties, password spray, token replay, and more.</li>
+    <li>Automated remediation policies respond to risk levels: require MFA for medium+ risk, require password change for high user risk, or block access for high sign-in risk.</li>
+    <li>Investigation: risk detections are grouped into risky users and risky sign-ins reports. Dismiss or confirm compromise to provide feedback for the ML model.</li>
+    <li>Requires Entra ID P2 licensing (included in M365 E5).</li>
+  </ul>
+</div>
+
+<div class="unit-block">
+  <h3>14. Identity Governance</h3>
+  <ul>
+    <li>Joiner/Mover/Leaver lifecycle automation uses lifecycle workflows triggered by start and end dates — automatically provision, update, or deprovision access.</li>
+    <li>Entitlement Management provides access packages bundling groups, apps, and SharePoint sites with policies for self-service requests, approvals (one or two stages), and time-bound access with expiration.</li>
+    <li>Verified ID uses decentralized identity with verifiable credentials based on open standards (W3C VC, DID). Three parties: issuer (trusted authority), holder (user wallet), and verifier (relying party).</li>
+    <li>Permissions Management discovers and remediates excessive permissions across Azure, AWS, and GCP with the Permission Creep Index (PCI).</li>
     <li>Entra Private Access is a Zero Trust VPN replacement that redirects private network traffic through the Entra edge.</li>
     <li>Entra Internet Access secures outbound internet traffic with FQDN and category filtering.</li>
     <li>Entra Suite combines P1 and P2 features with Private Access, Internet Access, Governance, and Identity Protection.</li>
@@ -5727,7 +5756,7 @@
 </div>
 
 <div class="unit-block">
-  <h3>12. Azure Network Security</h3>
+  <h3>15. Azure Network Security</h3>
   <ul>
     <li>DDoS Protection Basic is free and protects against high-volume attacks only; Standard offers Network or IP tiers with ML-tuned, custom policies.</li>
     <li>Azure Firewall operates at Layer 4 (network) and Layer 7 (application) with TLS inspection and threat intelligence filtering.</li>
@@ -5740,7 +5769,7 @@
 </div>
 
 <div class="unit-block">
-  <h3>13. Security Copilot</h3>
+  <h3>16. Security Copilot</h3>
   <ul>
     <li>AI-powered security analysis tool built on Azure OpenAI Services with a security-specific model, not just generic GPT-4.</li>
     <li>Standalone mode uses a dedicated Copilot portal for cross-product investigations; embedded mode integrates directly inside Sentinel, Defender, Entra, Purview, and Intune.</li>
@@ -5751,7 +5780,7 @@
 </div>
 
 <div class="unit-block">
-  <h3>14. Defender for Cloud</h3>
+  <h3>17. Defender for Cloud</h3>
   <ul>
     <li>Cloud-native application protection platform (CNAPP) with three pillars: CSPM (posture management), CWPP (workload protection), and DevSecOps (shift-left security).</li>
     <li>Foundational CSPM is free for all Azure subscriptions and provides Secure Score, MCSB compliance assessment, and security recommendations.</li>
@@ -5763,7 +5792,7 @@
 </div>
 
 <div class="unit-block">
-  <h3>15. Microsoft Sentinel</h3>
+  <h3>18. Microsoft Sentinel</h3>
   <ul>
     <li>Cloud-native SIEM (collect, detect, investigate) and SOAR (automated response with playbooks) built on a Log Analytics workspace.</li>
     <li>Collect: 350+ built-in data connectors plus custom API/Syslog/CEF connectors. ASIM normalizes data from different sources into a common schema.</li>
@@ -5775,7 +5804,7 @@
 </div>
 
 <div class="unit-block">
-  <h3>16. Defender XDR</h3>
+  <h3>19. Defender XDR</h3>
   <ul>
     <li>Unified pre- and post-breach defense suite coordinating detection, prevention, investigation, and response across endpoints, identities, email, and cloud apps.</li>
     <li>Combined incidents queue automatically correlates related alerts from all Defender products into a single incident showing the entire attack story.</li>
@@ -5789,7 +5818,7 @@
 </div>
 
 <div class="unit-block">
-  <h3>17. Compliance Principles</h3>
+  <h3>20. Compliance Principles</h3>
   <ul>
     <li>Six principles: Control, Transparency, Security, Legal Protections, No Content-Based Targeting, and Benefit to Customer.</li>
     <li>The Service Trust Portal (servicetrust.microsoft.com) hosts compliance documentation, certifications, reports, and regional and industry information.</li>
@@ -5798,7 +5827,7 @@
 </div>
 
 <div class="unit-block">
-  <h3>18. Microsoft Priva</h3>
+  <h3>21. Microsoft Priva</h3>
   <ul>
     <li>Privacy Risk Management discovers where private data lives and helps limit its transfer across boundaries.</li>
     <li>Subject Rights Requests handle the complete workflow for individuals requesting access to or deletion of their personal data.</li>
@@ -5808,7 +5837,7 @@
 </div>
 
 <div class="unit-block">
-  <h3>19. Microsoft Purview</h3>
+  <h3>22. Microsoft Purview</h3>
   <ul>
     <li>Purview is built on three pillars: Governance, Compliance, and Data Security.</li>
     <li>Compliance Manager tracks a compliance score, assessments, and improvement actions assigned to individuals.</li>
@@ -5827,7 +5856,7 @@
 </div>
 
 <div class="unit-block">
-  <h3>20. Data Governance</h3>
+  <h3>23. Data Governance</h3>
   <ul>
     <li>Federated governance model: centralized safety and standards with decentralized ownership across business domains to reduce bottlenecks.</li>
     <li>Data roles: data consumers (find and use data), data owners (register and manage assets), data stewards (ensure quality and policies), central data office (set governance policies).</li>
@@ -5840,7 +5869,7 @@
 </div>
 
 <div class="unit-block">
-  <h3>21. DSPM &amp; Data Security Investigations</h3>
+  <h3>24. DSPM &amp; Data Security Investigations</h3>
   <ul>
     <li>DSPM (Data Security Posture Management) provides a unified view of data security risks across M365, Azure, Fabric, and non-Microsoft environments (GCP, Snowflake, Databricks).</li>
     <li>AI observability dashboards monitor AI-related data risks including Copilot interactions and sensitive data in prompts.</li>
@@ -5849,7 +5878,7 @@
 </div>
 
 <div class="unit-block">
-  <h3>22. Licensing Quick Reference</h3>
+  <h3>25. Licensing Quick Reference</h3>
   <ul>
     <li>Conditional Access policies require Entra ID P1. Risk-based Conditional Access (sign-in/user risk) requires P2.</li>
     <li>PIM, Identity Protection, and Access Reviews require Entra ID P2 (included in M365 E5).</li>
