@@ -16,7 +16,9 @@ A comprehensive single-page study hub for the **Microsoft SC-900** exam (*Securi
 | **Identity & Access (LP1–2)** | Entra ID, authentication methods, MFA, Conditional Access, PIM, Identity Protection, external identities, hybrid identity |
 | **Security Solutions (LP3)** | Defender XDR (MDO, MDE, MDI, MDCA), Defender for Cloud, Microsoft Sentinel, DDoS Protection, Azure Firewall, WAF, NSG, Key Vault, Bastion |
 | **Compliance (LP4)** | Microsoft Purview, Compliance Manager, Information Protection, DLP, eDiscovery, Audit, Insider Risk Management, Communication Compliance, Records Management |
-| **Security Copilot** | How it works, architecture, integration points |
+| **John Savill Study Cram** | 11-unit video cram covering the full exam — condensed, exam-focused review |
+| **Georgia Kalyva Video Series** | Microsoft Learn video walkthrough series |
+| **Key Pointers** | Quick-reference cheat sheet with the most frequently tested concepts |
 | **Licensing Guide** | Feature-to-license mapping for Entra ID, M365 E3/E5, Business Premium, Defender, Purview, Sentinel; exam FAQ and real-world scenarios |
 | **Flashcards** | 365 searchable flashcards covering all exam domains |
 
@@ -41,12 +43,25 @@ Open [`index.html`](index.html) in any browser, or visit the [live site](https:/
 
 ## Sources
 
-Content is based on official Microsoft Learn modules for SC-900. Diagrams are sourced from Microsoft Learn documentation.
+Content is based on official Microsoft Learn modules, video study crams, and Microsoft documentation.
 
-- [SC-900: Describe the concepts of security, compliance, and identity](https://learn.microsoft.com/en-us/training/paths/describe-concepts-of-security-compliance-identity/)
-- [SC-900: Describe the capabilities of Microsoft Identity and Access Management](https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-identity-access-management/)
-- [SC-900: Describe the capabilities of Microsoft Security Solutions](https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-security-solutions/)
-- [SC-900: Describe the capabilities of Microsoft Compliance](https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-compliance/)
+### Microsoft Learn learning paths
+- [SC-900: Describe concepts of security, compliance, and identity](https://learn.microsoft.com/en-us/training/paths/describe-concepts-of-security-compliance-identity/)
+- [SC-900: Describe capabilities of Microsoft Identity and Access Management](https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-identity-access-management/)
+- [SC-900: Describe capabilities of Microsoft Security Solutions](https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-security-solutions/)
+- [SC-900: Describe capabilities of Microsoft Compliance](https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-compliance/)
+
+### Video study crams
+- John Savill — SC-900 Study Cram (YouTube)
+- Georgia Kalyva — SC-900 Microsoft Learn Video Series
+
+### Microsoft documentation
+- [Microsoft Entra ID documentation](https://learn.microsoft.com/en-us/entra/identity/)
+- [Microsoft Defender XDR documentation](https://learn.microsoft.com/en-us/defender-xdr/)
+- [Microsoft Sentinel documentation](https://learn.microsoft.com/en-us/azure/sentinel/)
+- [Microsoft Purview documentation](https://learn.microsoft.com/en-us/purview/)
+- [Microsoft Security Copilot documentation](https://learn.microsoft.com/en-us/security-copilot/)
+- [Microsoft licensing documentation](https://learn.microsoft.com/en-us/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/)
 
 ## License
 
