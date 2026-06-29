@@ -1,7 +1,7 @@
 # SC-900 Study Prep
 
 [![Live Site](https://img.shields.io/badge/GitHub_Pages-Live-2ea44f?logo=githubpages)](https://nowaxial.github.io/SC-900-Study-Prep/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE.md)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-blue.svg)](LICENSE.md)
 
 A comprehensive single-page study hub for the **Microsoft SC-900** exam (*Security, Compliance, and Identity Fundamentals*). Everything runs in one HTML file — no build tools, no dependencies, no server required.
 
@@ -50,4 +50,4 @@ Content is based on official Microsoft Learn modules for SC-900. Diagrams are so
 
 ## License
 
-MIT — see [LICENSE.md](LICENSE.md).
+CC BY 4.0 — see [LICENSE.md](LICENSE.md).
