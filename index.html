@@ -5624,27 +5624,32 @@
 <div class="unit-block">
   <h3>3. Defense in Depth</h3>
   <ul>
-    <li>Seven layers: Physical, Identity, Perimeter, Network, Compute, Application, and Data.</li>
-    <li>Each layer provides independent protection so that if one layer fails, the next layer prevents unauthorized access.</li>
-    <li>Data is the innermost and most critical layer to protect.</li>
+    <li>Seven layers (outermost → innermost): Physical (datacenter access, biometrics), Identity (MFA, authN/Z), Perimeter (DDoS protection, firewall), Network (NSGs, network segmentation), Compute (antimalware, patch management, vulnerability scanning), Application (WAF, input validation, secure coding), Data (encryption at rest/transit, access controls, DLP).</li>
+    <li>Each layer provides independent protection — if one layer is breached, the next layer still blocks the attacker. No single point of failure for security.</li>
+    <li>Data is the innermost and most critical layer because it is the ultimate target of most attacks. Every other layer exists to protect it.</li>
+    <li>The exam expects you to identify which layer a specific control belongs to (e.g., "MFA" = Identity layer, "WAF" = Application layer).</li>
   </ul>
 </div>
 
 <div class="unit-block">
   <h3>4. CIA Triad</h3>
   <ul>
-    <li>Confidentiality ensures data is accessible only to authorized parties, enforced through encryption and access controls.</li>
-    <li>Integrity ensures data has not been tampered with, enforced through hashing and digital signatures.</li>
-    <li>Availability ensures data and services are accessible when needed, enforced through redundancy, DDoS protection, and backups.</li>
+    <li>Confidentiality: data is accessible only to authorized parties. Enforced through encryption (at rest and in transit), access controls (RBAC, Conditional Access), and the principle of least privilege.</li>
+    <li>Integrity: data has not been tampered with. Enforced through hashing (verify file integrity), digital signatures (prove origin + integrity), and audit logs (detect unauthorized changes).</li>
+    <li>Availability: services are accessible when needed. Enforced through redundancy (availability zones), DDoS protection, backups, and disaster recovery planning.</li>
+    <li>All three must be balanced — focusing on one at the expense of others creates risk. For example, maximum encryption (confidentiality) without backup (availability) means data loss if keys are lost.</li>
+    <li>Exam tip: scenario questions often ask which element of the triad is most impacted by a specific event (e.g., ransomware = availability, data breach = confidentiality).</li>
   </ul>
 </div>
 
 <div class="unit-block">
   <h3>5. Zero Trust</h3>
   <ul>
-    <li>Three principles: verify explicitly, use least privilege access (JEA/JIT), and assume breach.</li>
-    <li>Seven pillars: Identities, Devices, Applications, Data, Infrastructure, Networks, and Visibility.</li>
-    <li>Identity is the primary security perimeter in cloud environments because the traditional network perimeter is no longer sufficient.</li>
+    <li>Three guiding principles: Verify explicitly (always authenticate and authorize based on ALL available signals — identity, device, location, risk), Use least privilege access (JEA/JIT — grant minimum permissions needed, time-bound elevation), Assume breach (design for breach — segment networks, encrypt end-to-end, limit blast radius, micro-perimeters).</li>
+    <li>Seven pillars: Identities, Devices, Applications, Data, Infrastructure, Networks, and Visibility (telemetry, analytics, and automation). Each pillar is evaluated continuously, not just at the perimeter.</li>
+    <li>Identity is the primary security perimeter in cloud environments — the traditional network perimeter (firewall/VPN) is no longer sufficient because users access resources from anywhere on any device.</li>
+    <li>Zero Trust is a guiding philosophy, not a specific product. Microsoft implements it through Entra ID (Conditional Access, PIM), Defender XDR, Intune, and Microsoft Purview.</li>
+    <li>Exam tip: Zero Trust questions test whether you understand that trust is NEVER assumed based on network location — a user inside the corporate network must be verified just as strictly as one connecting from a coffee shop.</li>
   </ul>
 </div>
 
@@ -5703,9 +5708,12 @@
 <div class="unit-block">
   <h3>10. Conditional Access & Authentication Strengths</h3>
   <ul>
-    <li>Conditional Access evaluates signals (user, location, device, risk) and applies controls (MFA, block, compliant device) after first-factor authentication.</li>
-    <li>Grant control logic: when multiple controls are selected, choose <em>Require all selected controls</em> (AND) or <em>Require one of the selected controls</em> (OR).</li>
-    <li>Authentication Strengths specify acceptable MFA method combinations: MFA (any factor), Passwordless MFA, or Phishing-Resistant MFA (FIDO2, CBA, Windows Hello).</li>
+    <li>Conditional Access is Microsoft's Zero Trust policy engine — evaluates signals AFTER first-factor authentication and applies access controls based on if-then logic.</li>
+    <li>Policy Assignments (the "if"): users/groups (include + exclude), target resources (cloud apps, user actions), conditions (device platform, location/IP ranges, client app, sign-in risk). All conditions are logically ANDed — all must match for the policy to apply.</li>
+    <li>Access Controls (the "then"): Grant (block, require MFA, require compliant/hybrid joined device, require approved client app, require app protection policy, require password change, require terms of use) or Session (app-enforced restrictions, sign-in frequency, persistent browser session, Global Secure Access controls).</li>
+    <li>Grant control logic: <em>Require all selected controls</em> (AND — user must satisfy every control) vs <em>Require one of the selected controls</em> (OR — any one is enough). This AND vs OR distinction is a common exam question.</li>
+    <li>Authentication Strengths specify acceptable MFA method combinations: MFA (any factor), Passwordless MFA (passwordless methods only), or Phishing-Resistant MFA (FIDO2 passkeys, CBA, Windows Hello — must be hardware-bound).</li>
+    <li>Requires Entra ID P1 licensing. Risk-based policies (sign-in risk, user risk) require P2.</li>
   </ul>
 </div>
 
@@ -5820,9 +5828,10 @@
 <div class="unit-block">
   <h3>20. Compliance Principles</h3>
   <ul>
-    <li>Six principles: Control, Transparency, Security, Legal Protections, No Content-Based Targeting, and Benefit to Customer.</li>
-    <li>The Service Trust Portal (servicetrust.microsoft.com) hosts compliance documentation, certifications, reports, and regional and industry information.</li>
-    <li>My Library lets you save and track relevant STP documents with email notifications when documents are updated.</li>
+    <li>Microsoft's six privacy principles: Control (you own your data), Transparency (clear data practices), Security (encryption at rest/transit), Legal Protections (challenge government requests), No Content-Based Targeting (don't use customer content for ads), Benefit to Customer (use data only to improve services).</li>
+    <li>Service Trust Portal (servicetrust.microsoft.com): central hub for compliance documentation — audit reports (SOC, ISO, FedRAMP), certifications, data protection whitepapers, and regional/industry-specific compliance resources.</li>
+    <li>My Library in STP lets you save, bookmark, and track relevant documents with email notifications when documents are updated or expire.</li>
+    <li>Compliance offerings are organized by service (Azure, M365, Dynamics) and by industry/region (GDPR, HIPAA, NIST, PCI DSS, ISO 27001, SOC 2).</li>
   </ul>
 </div>
 
@@ -5871,9 +5880,11 @@
 <div class="unit-block">
   <h3>24. DSPM &amp; Data Security Investigations</h3>
   <ul>
-    <li>DSPM (Data Security Posture Management) provides a unified view of data security risks across M365, Azure, Fabric, and non-Microsoft environments (GCP, Snowflake, Databricks).</li>
-    <li>AI observability dashboards monitor AI-related data risks including Copilot interactions and sensitive data in prompts.</li>
-    <li>Data Security Investigations uses vector search (semantic similarity), categorization, and examination for triaging data security incidents.</li>
+    <li>DSPM (Data Security Posture Management) provides a unified view of data security risks across M365, Azure, Fabric, and non-Microsoft environments (GCP, Snowflake, Databricks via partner integrations).</li>
+    <li>AI observability dashboards monitor AI-related data risks — Copilot interactions, sensitive data in prompts, and agent activities across the data estate.</li>
+    <li>Data risk assessments identify where sensitive data lives, who has access, and whether it is overexposed — with posture metrics and prioritized remediation recommendations.</li>
+    <li>Data Security Investigations uses vector search (semantic similarity meaning, not keyword matching), auto-categorization, and deep examination for triaging data security incidents.</li>
+    <li>Actions: soft purge (remove from user view but retain for recovery) or hard purge (permanent deletion) of sensitive content in investigation results.</li>
   </ul>
 </div>
 
