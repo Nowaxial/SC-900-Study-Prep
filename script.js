@@ -853,11 +853,16 @@ document.addEventListener('click', (e) => {
 
   // Back to top
   const btn = document.getElementById('back-to-top');
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   window.addEventListener('scroll', () => {
     btn.classList.toggle('visible', window.scrollY > 400);
   }, { passive: true });
-  btn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  btn.addEventListener('click', scrollToTop);
+  btn.addEventListener('touchend', function(e) {
+    e.preventDefault();
+    scrollToTop();
   });
 
   // Render initial flashcards
