@@ -855,12 +855,9 @@ document.addEventListener('click', (e) => {
   const btn = document.getElementById('back-to-top');
   if (btn) {
     const getScrollY = () => window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
-    const scrollToTop = () => { try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch(e) { window.scrollTo(0, 0); } };
     const onScroll = () => { btn.classList.toggle('visible', getScrollY() > 400); };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
-    btn.addEventListener('click', scrollToTop);
-    btn.addEventListener('touchstart', function(e) { e.preventDefault(); scrollToTop(); }, { passive: false });
   }
 
   // Render initial flashcards
