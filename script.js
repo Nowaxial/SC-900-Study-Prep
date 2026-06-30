@@ -532,7 +532,7 @@ function markCard(sectionId, mark) {
 }
 
 // Navigation
-function showSection(sectionId) {
+function showSection(sectionId, { scrollToTop = true } = {}) {
   currentSection = sectionId;
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.getElementById('section-' + sectionId).classList.add('active');
@@ -553,8 +553,10 @@ function showSection(sectionId) {
   document.getElementById('sidebar').classList.remove('open');
   document.getElementById('sidebarOverlay').classList.remove('active');
 
-  // Scroll to top
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  // Scroll to top (skip when navigating from search)
+  if (scrollToTop) {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
 }
 
 function toggleDomain(header) {
@@ -732,8 +734,8 @@ function navigateToSearchResult(sectionId, query) {
   // Close dropdown
   document.getElementById('searchResults').classList.remove('active');
 
-  // Navigate to section
-  showSection(sectionId);
+  // Navigate to section (skip scroll-to-top, we'll scroll to match instead)
+  showSection(sectionId, { scrollToTop: false });
 
   // Small delay for DOM to render the section, then highlight
   setTimeout(() => {
@@ -761,7 +763,13 @@ function navigateToSearchResult(sectionId, query) {
       span.innerHTML = textNode.textContent.replace(regex, '<mark class="search-match">$1</mark>');
       textNode.parentNode.replaceChild(span, textNode);
     });
-  }, 100);
+
+    // Scroll to first match
+    const firstMatch = section.querySelector('mark.search-match');
+    if (firstMatch) {
+      firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, 150);
 }
 
 // Search keyboard navigation
