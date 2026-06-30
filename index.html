@@ -1643,6 +1643,46 @@
 <p>With access reviews, you can easily ensure that users or guests have appropriate access. You can ask the users themselves or a decision maker to participate in an access review and recertify (or attest) to users' access. The reviewers can give their input on each user's need for continued access based on suggestions from Microsoft Entra ID. When an access review is finished, you can then make changes and remove access from users who no longer need it.</p>
 <p>Admins who create access reviews can track progress as the reviewers complete their process. No access rights are changed until the review is finished. You can, however, stop a review before it reaches its scheduled end.</p>
 <p>When the review is complete, it can be set to manually or autoapply changes to remove access from a group membership or application assignment, except for a dynamic group or a group that originates on-premises. In those cases, the changes must be applied directly to the group.</p>
+  <h5>Where to create access reviews</h5>
+<p>The tool used to create an access review depends on what type of access rights are being reviewed:</p>
+<div style="overflow-x:auto;">
+<table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:0.85em;">
+  <thead>
+    <tr style="background:var(--domain2);color:#fff;">
+      <th style="padding:8px;text-align:left;border:1px solid #444;">Access rights of users</th>
+      <th style="padding:8px;text-align:left;border:1px solid #444;">Reviewers can be</th>
+      <th style="padding:8px;text-align:left;border:1px solid #444;">Review created in</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding:6px;border:1px solid #444;">Security group / Office group members</td>
+      <td style="padding:6px;border:1px solid #444;">Specified reviewers, Group owners, Self-review</td>
+      <td style="padding:6px;border:1px solid #444;">Access Reviews</td>
+    </tr>
+    <tr style="background:rgba(255,255,255,0.03);">
+      <td style="padding:6px;border:1px solid #444;">Assigned to a connected app</td>
+      <td style="padding:6px;border:1px solid #444;">Specified reviewers, Self-review</td>
+      <td style="padding:6px;border:1px solid #444;">Access Reviews / Enterprise apps</td>
+    </tr>
+    <tr>
+      <td style="padding:6px;border:1px solid #444;">Microsoft Entra role</td>
+      <td style="padding:6px;border:1px solid #444;">Specified reviewers, Self-review</td>
+      <td style="padding:6px;border:1px solid #444;"><strong>PIM</strong></td>
+    </tr>
+    <tr style="background:rgba(255,255,255,0.03);">
+      <td style="padding:6px;border:1px solid #444;">Azure resource role</td>
+      <td style="padding:6px;border:1px solid #444;">Specified reviewers, Self-review</td>
+      <td style="padding:6px;border:1px solid #444;"><strong>PIM</strong></td>
+    </tr>
+    <tr>
+      <td style="padding:6px;border:1px solid #444;">Access package assignments</td>
+      <td style="padding:6px;border:1px solid #444;">Specified reviewers, Group members, Self-review</td>
+      <td style="padding:6px;border:1px solid #444;"><strong>Entitlement Management</strong></td>
+    </tr>
+  </tbody>
+</table>
+</div>
 <h5>Multi-stage access reviews</h5>
 <p>Microsoft Entra access reviews support up to three review stages, in which multiple types of reviewers engage in determining who still needs access to company resources.</p>
 <p>Multi-stage access reviews allow you and your organization to enable complex workflows to meet recertification and audit requirements calling for multiple reviewers to attest to access for users in a particular sequence. It also helps you design more efficient reviews for your resource owners and auditors by reducing the number of decisions each reviewer is accountable for.</p>
@@ -4419,6 +4459,94 @@
   <li>The retention periods can't be made shorter after the label has been applied.</li>
 </ul>
 <p>The most important difference is that if content has been marked as a regulatory record, nobody, not even a global administrator, can remove the label. Marking an item as a regulatory record can have irreversible consequences and should only be used when necessary. As a result, this option isn't available by default and must be enabled by the administrator using PowerShell.</p>
+<h4>Restrictions comparison: retention label vs record vs regulatory record</h4>
+<p>The following table compares what actions are allowed or blocked for each label type. Note: locked/unlocked record applies to SharePoint and OneDrive only; Exchange items always behave as locked record.</p>
+<div style="overflow-x:auto;">
+<table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:0.8em;">
+  <thead>
+    <tr style="background:var(--domain4);color:#fff;">
+      <th style="padding:6px;text-align:left;border:1px solid #444;">Action</th>
+      <th style="padding:6px;text-align:center;border:1px solid #444;">Retention label</th>
+      <th style="padding:6px;text-align:center;border:1px solid #444;">Record (locked)</th>
+      <th style="padding:6px;text-align:center;border:1px solid #444;">Record (unlocked)</th>
+      <th style="padding:6px;text-align:center;border:1px solid #444;">Regulatory record</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding:5px;border:1px solid #444;">Edit contents</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">Allowed</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#f44336;">Blocked</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">Allowed</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#f44336;">Blocked</td>
+    </tr>
+    <tr style="background:rgba(255,255,255,0.03);">
+      <td style="padding:5px;border:1px solid #444;">Edit properties (incl. rename)</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">Allowed</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">Allowed*</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">Allowed</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#f44336;">Blocked</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;border:1px solid #444;">Delete</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">Allowed**</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#f44336;">Blocked</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#f44336;">Blocked</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#f44336;">Blocked</td>
+    </tr>
+    <tr style="background:rgba(255,255,255,0.03);">
+      <td style="padding:5px;border:1px solid #444;">Copy</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">Allowed</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">Allowed</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">Allowed</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">Allowed</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;border:1px solid #444;">Move within container</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">Allowed</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">Allowed</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">Allowed</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">Allowed</td>
+    </tr>
+    <tr style="background:rgba(255,255,255,0.03);">
+      <td style="padding:5px;border:1px solid #444;">Move across containers</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">Allowed</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#ffa000;">If never unlocked</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#f44336;">Blocked</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#f44336;">Blocked</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;border:1px solid #444;">Open / Read</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">Allowed</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">Allowed</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">Allowed</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">Allowed</td>
+    </tr>
+    <tr style="background:rgba(255,255,255,0.03);">
+      <td style="padding:5px;border:1px solid #444;">Change label</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">Allowed</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#ffa000;">Admin only</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#f44336;">Blocked</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#f44336;">Blocked</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;border:1px solid #444;">Remove label</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">Allowed</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#ffa000;">Admin only</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#f44336;">Blocked</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#f44336;">Blocked</td>
+    </tr>
+    <tr style="background:rgba(255,255,255,0.03);">
+      <td style="padding:5px;border:1px solid #444;">Override with priority cleanup</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">Allowed</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#f44336;">Blocked</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#f44336;">Blocked</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#f44336;">Blocked</td>
+    </tr>
+  </tbody>
+</table>
+<p style="font-size:0.8em;margin-top:4px;">* Editing properties for locked record can be blocked by tenant setting. ** Deleting labeled items in SharePoint/OneDrive can be blocked by tenant setting. Container = SharePoint site, OneDrive account, or Exchange mailbox.</p>
+</div>
 <h4>Event-based retention</h4>
 <p>Standard retention policies start counting the retention period from a fixed point—for example, when an item was created or last modified. Event-based retention is different: the retention period starts when a specific event occurs rather than from a fixed date.</p>
 <p>For example, an organization might need to retain employee records for seven years after the employee leaves the organization. With event-based retention, the retention countdown starts when the triggering event (the employee's departure) is recorded, not when the document was originally created. This makes it possible to manage retention accurately for items whose lifecycle is tied to business events.</p>
