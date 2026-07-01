@@ -4339,10 +4339,72 @@
 </ul>
 <h3>Two auditing solutions: Standard and Premium</h3>
 <p>Microsoft Purview provides two auditing solutions:</p>
-<ul>
-  <li>Audit (Standard)</li>
-  <li>Audit (Premium)</li>
-</ul>
+<div style="overflow-x:auto;">
+<table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:0.8em;">
+  <thead>
+    <tr style="background:var(--domain4);color:#fff;">
+      <th style="padding:6px;text-align:left;border:1px solid #444;">Capability</th>
+      <th style="padding:6px;text-align:center;border:1px solid #444;">Audit (Standard)</th>
+      <th style="padding:6px;text-align:center;border:1px solid #444;">Audit (Premium)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding:5px;border:1px solid #444;">Enabled by default</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">✓</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">✓</td>
+    </tr>
+    <tr style="background:rgba(255,255,255,0.03);">
+      <td style="padding:5px;border:1px solid #444;">Thousands of searchable audit events</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">✓</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">✓</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;border:1px solid #444;">Audit search tool &amp; Graph API &amp; PowerShell cmdlet</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">✓</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">✓</td>
+    </tr>
+    <tr style="background:rgba(255,255,255,0.03);">
+      <td style="padding:5px;border:1px solid #444;">Export audit records to CSV</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">✓</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">✓</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;border:1px solid #444;">Office 365 Management Activity API access</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">✓</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">✓ Higher bandwidth</td>
+    </tr>
+    <tr style="background:rgba(255,255,255,0.03);">
+      <td style="padding:5px;border:1px solid #444;">180-day audit log retention</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">✓</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">✓</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;border:1px solid #444;">Up to 1-year audit log retention</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#f44336;">—</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">✓</td>
+    </tr>
+    <tr style="background:rgba(255,255,255,0.03);">
+      <td style="padding:5px;border:1px solid #444;">10-year audit log retention</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#f44336;">—</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">✓ (add-on)</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;border:1px solid #444;">Audit log retention policies</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#f44336;">—</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">✓</td>
+    </tr>
+    <tr style="background:rgba(255,255,255,0.03);">
+      <td style="padding:5px;border:1px solid #444;">Intelligent insights</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#f44336;">—</td>
+      <td style="padding:5px;text-align:center;border:1px solid #444;color:#4caf50;">✓</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<blockquote style="background:rgba(255,215,0,0.1);border-left:4px solid #e6b800;padding:10px 14px;margin:12px 0;border-radius:4px;">
+<strong>Important:</strong> The default retention period for Audit (Standard) changed from <strong>90 days</strong> to <strong>180 days</strong>. Audit (Standard) logs generated before October 17, 2023, are retained for 90 days. Audit (Standard) logs generated on or after October 17, 2023, follow the new default of 180 days.
+</blockquote>
 <h4>Audit (Standard)</h4>
 <p>Audit (Standard) is enabled by default for all organizations with the appropriate subscription and is available to users with the appropriate permissions. When an audited activity is performed, an audit record is generated and stored in the audit log for your organization.</p>
 <p>Key capabilities of Audit (Standard) include:</p>
@@ -5187,7 +5249,7 @@
     <li><strong>eDiscovery Premium</strong>: Adds the complete end-to-end workflow with advanced analytics and custodian management.</li>
   </ul>
   <h4>Audit</h4>
-  <p>Audit logs capture Microsoft 365 operations for forensic evidence, compliance, regulations, and internal investigations. The default retention is 90 days for <strong>Audit Standard</strong> and one year for <strong>Audit Premium</strong>. Premium also provides a higher-bandwidth API for faster access. All three access methods &mdash; UI, command line, and API &mdash; are available in both tiers.</p>
+  <p>Audit logs capture Microsoft 365 operations for forensic evidence, compliance, regulations, and internal investigations. The default retention is 180 days for <strong>Audit Standard</strong> and one year for <strong>Audit Premium</strong>. Premium also provides a higher-bandwidth API for faster access. All three access methods &mdash; UI, command line, and API &mdash; are available in both tiers.</p>
 </div>
 
       </div>
@@ -5312,7 +5374,7 @@
             <li><strong>Retention &amp; records</strong>: Retention policies (retain for defined period, then delete). Records management (restrictions on labeled records, activities blocked, all actions logged, proof of disposition at end)</li>
             <li><strong>Insider Risk Management</strong>: Policies for internal risk signals. Behavior matches policy → alert generated. Analysts dismiss alert or create case for investigation</li>
             <li><strong>eDiscovery</strong>: Finds content across mailboxes, groups, Teams, SharePoint, OneDrive, Skype, Yammer. Content search (basic keyword), Standard (case management, legal holds), Premium (end-to-end workflow, advanced analytics, custodian management)</li>
-            <li><strong>Audit</strong>: Logs M365 operations for forensic evidence, compliance, regulations, investigations. Standard (90-day retention), Premium (1-year retention, higher-bandwidth API). UI, CLI, and API access in both tiers</li>
+            <li><strong>Audit</strong>: Logs M365 operations for forensic evidence, compliance, regulations, investigations. Standard (180-day retention), Premium (1-year retention, higher-bandwidth API). UI, CLI, and API access in both tiers</li>
           </ul>
         </div>
       </div>
@@ -5583,7 +5645,7 @@
 
   <h4>Audit</h4>
   <ul>
-    <li><strong>Audit Standard</strong>: 90-day retention, enabled by default</li>
+    <li><strong>Audit Standard</strong>: 180-day retention (was 90 days before Oct 2023), enabled by default</li>
     <li><strong>Audit Premium</strong>: 1-year retention, custom policies, higher bandwidth API, intelligence insights</li>
   </ul>
   <p>Searchable via Purview portal, CLI, or API. Security Copilot actions are also logged through Purview Audit.</p>
@@ -5691,7 +5753,7 @@
             <li><strong>Sensitivity Labels</strong>: Persistent, clear-text metadata traveling with content. Can encrypt, watermark, auto-classify. Label policies control visibility, set defaults, require justification for downgrade, enforce mandatory labeling. Container labels for SharePoint sites/M365 groups.</li>
             <li><strong>DLP</strong>: Real-time detection across Exchange, SharePoint, OneDrive, Teams, endpoints, cloud apps, Power BI. Policy tips → block with/without override. Endpoint DLP covers USB, printing, unapproved apps.</li>
             <li><strong>Insider Risk Management</strong>: Policies → risk indicators → alerts → triage → cases → remediation. Adaptive Protection uses ML to assess user risk and auto-adjust DLP/retention/CA controls accordingly.</li>
-            <li><strong>Audit</strong>: Standard (90-day retention, default) vs Premium (1-year, custom retention policies, higher bandwidth API). Searchable via UI, CLI, API. Security Copilot actions logged through Purview Audit.</li>
+            <li><strong>Audit</strong>: Standard (180-day retention, default) vs Premium (1-year, custom retention policies, higher bandwidth API). Searchable via UI, CLI, API. Security Copilot actions logged through Purview Audit.</li>
             <li><strong>eDiscovery</strong>: Content Search (basic keyword), Standard (cases + legal holds), Premium (analytics + custodian management + full workflow). Copilot integration for review set summarization and natural language to search query.</li>
             <li><strong>Compliance Manager</strong>: Prebuilt assessments (ISO 27001, GDPR). Improvement actions with point values. Compliance Score = shared responsibility view (Microsoft-managed + customer-managed). Actions classified as mandatory/discretionary and preventative/detective/corrective.</li>
             <li><strong>Data Lifecycle Management</strong>: Retention labels (item-level, travel with content, disposition review) vs retention policies (broad-level, containers inherit). Records management: records (no edit/delete, activity logged, proof of disposition) and regulatory records (label cannot be removed, retention cannot be shortened even by admins).</li>
@@ -6023,7 +6085,7 @@
     <li>Communication Compliance detects code of conduct violations in email, Teams, Viva Engage, and Copilot interactions using pre-built templates and ML classifiers.</li>
     <li>Information Barriers restrict communication between segments for compliance (e.g., trading vs advisory departments).</li>
     <li>eDiscovery tiers: Content Search (basic) &lt; Standard (cases and legal holds) &lt; Premium (full end-to-end workflow with custodians, analytics, and redactions).</li>
-    <li>Audit Standard retains logs for 90 days; Audit Premium retains logs for 1 year and provides a higher-bandwidth API with custom retention policies.</li>
+    <li>Audit Standard retains logs for 180 days (was 90 days before Oct 2023); Audit Premium retains logs for 1 year and provides a higher-bandwidth API with custom retention policies.</li>
   </ul>
 </div>
 
@@ -6123,7 +6185,7 @@
             <li><strong>Sensitivity Labels</strong>: Persistent clear-text metadata, one per item. Actions: encrypt (specify users/groups/permissions), mark (watermark/header/footer), auto-apply (SITs/classifiers), protect containers (Teams/Groups/Sites), MIP SDK for third-party apps. Label scopes: Files, Emails, Meetings, Groups &amp; sites</li>
             <li><strong>DLP</strong>: Deep content analysis across Exchange, SharePoint, OneDrive, Teams, endpoints (Windows/macOS), cloud apps, on-prem, Edge for Business. Actions: policy tip, block with override, hard block, lock/quarantine, hide in Teams. DLP for AI interactions (warn/block pasting sensitive data into ChatGPT etc.). Endpoint DLP: monitor copy/print/USB/network share. Teams DLP: policy tips on sensitive messages. Security Copilot integration: alert summarization + Alert Triage Agent</li>
             <li><strong>Insider Risk Management</strong>: Four principles — Transparency, Configurable, Integrated, Actionable. Workflow: Policies (templates for data theft, leaks, policy violations, AI usage, agents, priority users, healthcare, HR stressors) → Alerts → Triage → Investigate (user activity chart, content explorer, data risk graph with Sentinel) → Action (notification, eDiscovery escalation, forensic evidence). Adaptive Protection: ML-driven dynamic DLP/retention/CA controls based on risk level (Elevated/Moderate/Minor)</li>
-            <li><strong>Records Management</strong>: Retention labels as records (no edit/delete) or regulatory records (strongest — cannot remove label). Disposition review, adaptive vs static scopes, preservation lock. eDiscovery tiers: Content Search (basic keyword), Standard (cases + holds), Premium (custodians, advanced analytics, review sets, redactions). Audit Standard (90 days), Premium (1 year+, up to 10 years, higher bandwidth API, custom policies, Copilot interaction logging)</li>
+            <li><strong>Records Management</strong>: Retention labels as records (no edit/delete) or regulatory records (strongest — cannot remove label). Disposition review, adaptive vs static scopes, preservation lock. eDiscovery tiers: Content Search (basic keyword), Standard (cases + holds), Premium (custodians, advanced analytics, review sets, redactions). Audit Standard (180 days, was 90 days before Oct 2023), Premium (1 year+, up to 10 years, higher bandwidth API, custom policies, Copilot interaction logging)</li>
             <li><strong>DSPM &amp; Data Security Investigations</strong>: DSPM — unified data security view across M365, Azure, Fabric, non-Microsoft (GCP, Snowflake, Databricks via partners). AI observability for agent activities. Data risk assessments, posture metrics. Data Security Investigations — vector search (meaning-based), categorization, examination (credentials/network/vulnerability scanning). Actions: soft purge or hard purge. Pay-as-you-go billing</li>
             <li><strong>Data Governance</strong>: Federated governance model (centralized standards + decentralized ownership). Data roles: consumers, owners, stewards, central data office. Microsoft Purview Data Map (scans/catalogs Azure, M365, on-prem sources, auto-discovers assets, classifies sensitive info, maps lineage). Unified Catalog (business-friendly view for discovering data assets). Governance Domains (organize by business concept: Marketing, Finance, Sales). Data Products (named, owned data assets serving specific use cases). Glossary Terms (business-language definitions). Critical Data Elements (CDEs with quality rules and access policies). Data Quality (no-code rules + AI-generated rules, scores at asset/product/domain levels)</li>
             <li><strong>Licensing Quick Reference</strong>: Conditional Access requires Entra P1. Risk-based CA, PIM, Identity Protection, Access Reviews require P2 (in E5). Defender for Office 365 Plan 1 (Safe Attachments/Links) in E3/Business Premium; Plan 2 (AIR, Threat Explorer, simulation) requires E5. Defender for Endpoint P2, Defender for Identity, Defender for Cloud Apps require E5/Defender Suite. Sentinel is pay-as-you-go Azure (not in M365 SKUs), but Defender alerts are free ingestion. Security Copilot included with E5/E7 starting 2025 or standalone SCUs. Auto-labeling, DLP for Teams/Endpoints, Insider Risk, Communication Compliance, eDiscovery Premium, Audit Premium, Priva require E5/Purview Suite. M365 E5 bundles best value: Entra P2 + full Defender XDR + full Purview Suite + Security Copilot</li>
@@ -6222,7 +6284,7 @@
     <tr><td>Records Management</td><td><strong>M365 E5</strong> or Purview Suite</td></tr>
     <tr><td>eDiscovery Standard</td><td><strong>M365 E3</strong></td></tr>
     <tr><td>eDiscovery Premium (analytics, review sets)</td><td><strong>M365 E5</strong> or Purview Suite</td></tr>
-    <tr><td>Audit Standard (90-day retention)</td><td><strong>Any M365</strong></td></tr>
+    <tr><td>Audit Standard (180-day retention)</td><td><strong>Any M365</strong></td></tr>
     <tr><td>Audit Premium (1-year, custom policies)</td><td><strong>M365 E5</strong> or Purview Suite</td></tr>
     <tr><td>Compliance Manager (full)</td><td><strong>M365 E5</strong> or Purview Suite</td></tr>
     <tr><td>Insider Risk Management</td><td><strong>M365 E5</strong> or Purview Suite</td></tr>
@@ -6524,7 +6586,7 @@
     </tr>
     <tr>
       <td><strong>Audit</strong></td>
-      <td>Audit Standard (90-day retention)</td>
+      <td>Audit Standard (180-day retention)</td>
       <td>+ Audit Premium (1-year retention, custom policies, higher bandwidth API, intelligence insights)</td>
     </tr>
     <tr>
@@ -6563,7 +6625,7 @@
   <h4>Purview Audit Comparison</h4>
   <table class="lic-table">
     <tr><th>Feature</th><th>Audit Standard</th><th>Audit Premium</th></tr>
-    <tr><td>Retention</td><td>90 days</td><td>1 year (custom up to 10 years with add-on)</td></tr>
+    <tr><td>Retention</td><td>180 days (was 90 days before Oct 2023)</td><td>1 year (custom up to 10 years with add-on)</td></tr>
     <tr><td>API Bandwidth</td><td>Standard</td><td>Higher bandwidth</td></tr>
     <tr><td>Intelligence Insights</td><td>&mdash;</td><td>✅</td></tr>
     <tr><td>Custom Retention Policies</td><td>&mdash;</td><td>✅ (per service/per activity)</td></tr>

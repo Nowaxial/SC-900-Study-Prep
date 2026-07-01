@@ -256,7 +256,7 @@ const FLASHCARD_INLINE = {
     {"q":"Communication Compliance","a":"Detects code of conduct violations and policy issues in email, Teams, and Viva Engage using ML classifiers"},
     {"q":"eDiscovery","a":"Identifying, collecting, and reviewing electronically stored information for legal cases or investigations"},
     {"q":"eDiscovery Standard vs Premium","a":"Premium adds custodian management, review sets, analytics, and hold policies"},
-    {"q":"Standard audit log retention","a":"90 days (180 days for E5; Premium audit retains 1 year+)"},
+    {"q":"Standard audit log retention","a":"180 days (was 90 days before Oct 2023; Premium audit retains 1 year+)"},
     {"q":"Audit solutions","a":"Recording and searching user/admin activities across Microsoft 365 for investigations and compliance"},
     {"q":"Data Lifecycle Management","a":"Manages content retention and deletion using retention policies and labels"},
     {"q":"Records management","a":"Declares documents as records with retention schedules and disposition reviews"},
@@ -347,7 +347,7 @@ const FLASHCARD_INLINE = {
     {"q":"Sensitivity label","a":"Classification plus actions (watermark, encryption, access controls) — clear-text metadata, single label per item"},
     {"q":"Records management","a":"Restricts activities on items labeled as records, logs all actions, and provides proof of disposition"},
     {"q":"eDiscovery tiers","a":"Content search (basic) < eDiscovery Standard (cases, legal holds) < eDiscovery Premium (full end-to-end workflow)"},
-    {"q":"Audit Standard vs Premium","a":"Standard = 90-day default retention; Premium = 1-year retention plus higher-bandwidth API"}
+    {"q":"Audit Standard vs Premium","a":"Standard = 180-day default retention (was 90 days before Oct 2023); Premium = 1-year retention plus higher-bandwidth API"}
   ],
   "gl-1": [
     {"q":"Shared Responsibility pizza analogy","a":"On-prem = homemade, IaaS = pizza base, PaaS = partially prepared, SaaS = delivered. Customer always retains data, devices, identities"},
@@ -392,7 +392,7 @@ const FLASHCARD_INLINE = {
     {"q":"DLP","a":"Data Loss Prevention — real-time detection across M365 + endpoints. Policy tips → block with/without override"},
     {"q":"Insider Risk Management workflow","a":"Policies → risk indicators → alerts → triage → cases → remediation"},
     {"q":"Adaptive Protection","a":"ML assesses user risk level → auto-adjusts DLP, retention, and CA controls"},
-    {"q":"Audit Standard vs Premium","a":"Standard = 90-day; Premium = 1-year + custom retention + higher bandwidth API"},
+    {"q":"Audit Standard vs Premium","a":"Standard = 180-day (was 90 days before Oct 2023); Premium = 1-year + custom retention + higher bandwidth API"},
     {"q":"eDiscovery tiers","a":"Content Search (basic) < Standard (cases + holds) < Premium (analytics + custodian management)"},
     {"q":"Compliance Manager","a":"Prebuilt assessments (ISO, GDPR), improvement actions with points, shared responsibility score"},
     {"q":"Retention labels vs policies","a":"Labels = item-level, travel with content; Policies = broad-level (entire mailbox/site)"},
